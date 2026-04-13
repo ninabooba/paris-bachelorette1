@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Paris Bachelorette 💜 July 2–5</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{--lav:#EDE8F7;--lav-card:#F8F6FD;--lav-mid:#C4B8E8;--lav-accent:#8B7BC8;--lav-deep:#5C4FA0;--lav-soft:#D9D2F0;--pink:#E07AA8;--pink-s:#B85888;--pink-bg:#FEF0F8;--pink-bdr:#F4C0DC;--green:#6BAF8C;--green-s:#4A9270;--text:#2D2545;--text2:#6B5F8A;--text3:#9B90B8;--bdr:rgba(139,123,200,0.2);--nap:#F3F0FB;--wine:#F5ECF8;--wine-bdr:#D4A8E0;--wine-text:#7A3D9A;--warn:#FFF8EC;--warn-bdr:#F0C060;--warn-text:#8B5000}
+html,body{font-family:'Helvetica Neue',Arial,sans-serif;background:#E8E2F5;min-height:100vh;color:var(--text)}
+.wrap{max-width:480px;margin:0 auto;background:var(--lav);min-height:100vh}
+.hdr{background:var(--lav-deep);padding:22px 16px 0;text-align:center}
+.hdr h1{color:#fff;font-size:22px;font-weight:700;letter-spacing:-.3px}
+.hdr p{color:var(--lav-mid);font-size:11px;margin-top:4px;padding-bottom:14px;letter-spacing:.05em}
+.tabs{display:flex;gap:5px;padding:10px 12px;overflow-x:auto;scrollbar-width:none;background:var(--lav-deep);position:sticky;top:0;z-index:50}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;border:1.5px solid var(--pink-bdr);color:var(--pink-s);background:var(--pink-bg);font-family:inherit;transition:all .15s}
+.tab.on{background:var(--pink);color:#6A1838;border-color:var(--pink-s)}
+.panel{display:none;padding:14px 12px 32px}.panel.on{display:block}
+.dlabel{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.tl{position:relative;padding-left:44px}
+.tl::before{content:'';position:absolute;left:17px;top:12px;bottom:12px;width:1.5px;background:var(--lav-soft)}
+.ev{position:relative;margin-bottom:9px}
+.dot{position:absolute;left:11px;top:15px;width:13px;height:13px;border-radius:50%;background:var(--lav-soft);border:2px solid var(--lav-mid);z-index:1}
+.dot.sp{background:var(--pink);border-color:var(--pink)}.dot.fd{background:var(--green);border-color:var(--green)}.dot.nt{background:#7B68C8;border-color:#5C4FA0}.dot.nap{background:#B8A8E8;border-color:#8B7BC8}.dot.wine{background:var(--wine-text);border-color:#5A2070}.dot.warn{background:#E8A030;border-color:#C07010}
+.card{background:var(--lav-card);border-radius:13px;border:1px solid var(--bdr);overflow:hidden}
+.card.sp{border-color:rgba(224,122,168,0.35)}.card.nt{border-color:rgba(92,79,160,0.35)}.card.nap{background:var(--nap);border:1.5px dashed var(--lav-mid)}.card.wine{background:var(--wine);border:1.5px solid var(--wine-bdr)}.card.warn{background:var(--warn);border:1.5px solid var(--warn-bdr)}.card.done{opacity:.45}
+.cmain{display:flex;align-items:flex-start}
+.ccol{padding:13px 8px 13px 12px;flex-shrink:0}
+.cbody{flex:1;padding:11px 12px 11px 2px;min-width:0}
+.crow{display:flex;align-items:flex-start;gap:7px}
+.tpill{font-size:10px;font-weight:700;color:var(--lav-accent);background:var(--lav);padding:2px 8px;border-radius:99px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.tpill.nt{color:#5C4FA0;background:#EDE8F7}.tpill.nap{color:var(--lav-deep);background:var(--lav-soft)}.tpill.wine{color:var(--wine-text);background:var(--wine)}.tpill.warn{color:var(--warn-text);background:#FFF0D0}
+.etitle{font-size:13.5px;font-weight:500;line-height:1.3;flex:1}
+.eloc{font-size:11px;color:var(--text3);margin-top:3px}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;background:rgba(224,122,168,0.15);color:var(--pink);margin-top:4px}
+.badge.wine{background:rgba(122,61,154,0.12);color:var(--wine-text)}.badge.warn{background:rgba(232,160,48,0.15);color:var(--warn-text)}
+.xbtn{font-size:11px;color:var(--lav-accent);background:none;border:none;padding:4px 0 0;cursor:pointer;font-weight:600;font-family:inherit}
+.dets{display:none;background:var(--lav);margin:6px -12px -11px -2px;padding:10px 12px;border-top:1px solid var(--bdr);font-size:12px;color:var(--text2);line-height:1.6;border-radius:0 0 13px 13px}
+.card.wine .dets{background:var(--wine);border-top-color:var(--wine-bdr)}.card.warn .dets{background:var(--warn);border-top-color:var(--warn-bdr)}
+.dets.on{display:block}
+.flabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px}
+.fi{font-size:12px;padding:10px 0;border-bottom:1px solid var(--bdr)}
+.fi:last-child{border-bottom:none;padding-bottom:0}
+.fi-top{display:flex;align-items:flex-start;gap:6px}
+.fi-name{font-weight:600;color:var(--text);font-size:12.5px;flex:1;line-height:1.3;min-width:0}
+.fi-actions{display:flex;gap:4px;flex-shrink:0;align-items:center}
+.fi-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:2px 4px;border-radius:4px;line-height:1;color:var(--text3)}
+.fi-btn:hover{background:var(--lav-soft)}.fi-btn.del:hover{color:#c0392b;background:rgba(192,57,43,.08)}
+.fi-link{font-size:10px;color:var(--lav-accent);text-decoration:none;background:var(--lav-soft);padding:2px 7px;border-radius:99px;border:1px solid var(--lav-mid);white-space:nowrap;font-weight:500}
+.fi-rating{font-size:11px;color:#8B6FBB;font-weight:600;white-space:nowrap}
+.fi-heart{background:none;border:1px solid var(--pink-bdr);border-radius:99px;padding:2px 8px;font-size:11px;cursor:pointer;color:var(--pink-s);display:flex;align-items:center;gap:3px;white-space:nowrap;font-family:inherit}
+.fi-heart:hover{background:var(--pink-bg)}.fi-heart.voted{background:var(--pink-bg);border-color:var(--pink);color:var(--pink);font-weight:700}
+.fi-meta{display:flex;align-items:center;gap:5px;margin-top:4px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:99px;margin-right:3px;margin-bottom:3px;font-weight:500}
+.tag.r{background:rgba(224,122,168,.15);color:var(--pink)}.tag.g{background:rgba(107,175,140,.15);color:var(--green-s)}.tag.p{background:rgba(139,123,200,.15);color:var(--lav-accent)}.tag.n{background:rgba(92,79,160,.15);color:#5C4FA0}
+.wine-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.wine-btn{display:inline-flex;align-items:center;gap:5px;color:#fff;border:none;border-radius:8px;padding:9px 14px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.wine-price{font-size:14px;font-weight:700;color:var(--wine-text);margin-top:10px}
+.edit-form{display:none;margin-top:6px}.edit-form.on{display:block}
+.edit-inp{width:100%;border:1.5px solid var(--lav-mid);border-radius:8px;padding:7px 10px;font-size:12px;background:#fff;color:var(--text);outline:none;font-family:inherit;resize:vertical;min-height:60px}
+.edit-inp:focus{border-color:var(--lav-accent)}
+.edit-row{display:flex;gap:6px;margin-top:6px}
+.save-btn{background:var(--lav-accent);color:#fff;border:none;border-radius:8px;padding:6px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit}
+.cancel-btn{background:none;border:1.5px solid var(--lav-mid);color:var(--text2);border-radius:8px;padding:6px 11px;font-size:11px;cursor:pointer;font-family:inherit}
+.plusbtn{display:flex;align-items:center;gap:6px;background:var(--lav-soft);border:1.5px solid var(--lav-mid);border-radius:10px;padding:9px 13px;width:100%;font-size:12px;color:var(--lav-deep);cursor:pointer;font-weight:700;margin-top:7px;margin-bottom:2px;font-family:inherit}
+.plusbtn:hover{background:var(--lav-mid)}
+.addbox{background:var(--lav-card);border:1.5px solid var(--lav-mid);border-radius:14px;padding:14px;margin-top:6px;margin-bottom:4px;display:none}
+.addbox.on{display:block}
+.add-prompt{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px}
+.add-prompt span{font-size:11px;color:var(--text3);font-weight:400;display:block;margin-top:2px}
+.search-row{display:flex;gap:0;margin-bottom:0}
+.srch-inp{flex:1;border:1.5px solid var(--lav-mid);border-right:none;border-radius:9px 0 0 9px;padding:10px 13px;font-size:13px;background:#fff;color:var(--text);outline:none;font-family:inherit}
+.srch-inp:focus{border-color:var(--lav-accent)}
+.srch-inp::placeholder{color:var(--text3);font-size:12px}
+.srch-btn{background:var(--lav-deep);color:#fff;border:none;border-radius:0 9px 9px 0;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;flex-shrink:0}
+.srch-btn:active{opacity:.85}
+.srch-results{margin-top:9px}
+.srch-loading{text-align:center;padding:12px 0;font-size:12px;color:var(--text3);font-style:italic}
+.srch-empty{text-align:center;padding:10px 0;font-size:12px;color:var(--text3)}
+.srch-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--lav);border:1px solid var(--bdr);border-radius:10px;margin-bottom:7px;cursor:pointer}
+.srch-opt:last-child{margin-bottom:0}
+.srch-opt:hover,.srch-opt:active{background:var(--lav-soft);border-color:var(--lav-mid)}
+.srch-opt-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
+.srch-opt-addr{font-size:11px;color:var(--text3);margin-top:1px}
+.srch-opt-r{flex-shrink:0;text-align:right}
+.srch-star{font-size:11px;color:#8B6FBB;font-weight:600}
+.srch-add{font-size:10px;font-weight:700;color:var(--lav-accent);margin-top:2px}
+.cbx{width:19px;height:19px;border-radius:5px;border:2px solid var(--lav-mid);appearance:none;-webkit-appearance:none;cursor:pointer;background:#fff;position:relative;flex-shrink:0;transition:all .15s}
+.cbx:checked{background:var(--green);border-color:var(--green-s)}
+.cbx:checked::after{content:'';position:absolute;left:4px;top:1px;width:6px;height:10px;border:2.5px solid #fff;border-top:none;border-left:none;transform:rotate(42deg)}
+.scbx{width:17px;height:17px;border-radius:4px;border:2px solid var(--lav-mid);appearance:none;-webkit-appearance:none;cursor:pointer;background:#fff;position:relative;flex-shrink:0;transition:all .15s}
+.scbx:checked{background:var(--green);border-color:var(--green-s)}
+.scbx:checked::after{content:'';position:absolute;left:3px;top:0;width:6px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(42deg)}
+.clitem{background:var(--lav-card);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+.clitem.urg{border-color:rgba(224,122,168,.4)}
+.cltext strong{display:block;font-size:13px;font-weight:500}
+.cltext span{font-size:11.5px;color:var(--text2);line-height:1.4}
+.donetag{font-size:10px;font-weight:600;color:var(--green);background:rgba(107,175,140,.12);padding:2px 7px;border-radius:99px;margin-top:4px;display:inline-block}
+.tipcard{background:var(--lav-card);border:1px solid var(--bdr);border-radius:11px;padding:11px 13px;margin-bottom:7px;font-size:12px;color:var(--text2);line-height:1.5}
+.tipcard strong{display:block;font-size:13px;color:var(--text);margin-bottom:2px;font-weight:500}
+.clhead{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;margin-top:14px}
+.clhead:first-child{margin-top:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr"><h1>💜 Paris Bachelorette</h1><p>JULY 2–5 &nbsp;·&nbsp; ÉLYSÉE-CONCORDE SUITE ROYALE</p></div>
+<div class="tabs">
+  <button class="tab on" onclick="sw('d1',this)">Thu Jul 2</button>
+  <button class="tab" onclick="sw('d2',this)">Fri Jul 3</button>
+  <button class="tab" onclick="sw('d3',this)">Sat Jul 4</button>
+  <button class="tab" onclick="sw('d4',this)">Sun Jul 5</button>
+  <button class="tab" onclick="sw('dk',this)">Checklist</button>
+</div>
+
+<!-- DAY 1 -->
+<div id="d1" class="panel on">
+<div class="dlabel">Day 1 — Thursday Jul 2 · Arrival &amp; ballet night</div>
+<div class="tl">
+<div class="ev"><div class="dot"></div><div class="card" id="C1"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C1')"></div><div class="cbody"><div class="crow"><div class="tpill">10:30 am</div><div class="etitle">Land at Paris CDG</div></div><div class="eloc">Charles de Gaulle Airport, Terminal 2</div><button class="xbtn" onclick="xp(this)">Details ↓</button><div class="dets">Clear customs and collect luggage — allow ~45 min. Follow signs to Arrivals, then head outside to the Uber/VTC pickup zone.</div></div></div></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="C1b"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C1b')"></div><div class="cbody"><div class="crow"><div class="tpill">11:30 am</div><div class="etitle">Uber XL to the apartment</div></div><div class="eloc">Élysée-Concorde Suite Royale, 7 Rue Royale, 75008</div><button class="xbtn" onclick="xp(this)">Details ↓</button><div class="dets">Book <strong>Uber XL</strong> at arrivals — best for a group with luggage. Journey ~40–50 min.<br><br>Address for driver: <strong>7 Rue Royale, 75008 Paris — Élysée-Concorde Suite Royale</strong><br><br>Cost: approximately €60–80 for the group.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="C2"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C2')"></div><div class="cbody"><div class="crow"><div class="tpill">1:00 pm</div><div class="etitle">Lunch — first Parisian meal</div></div><div class="eloc">Near Rue Royale / 8th arrondissement</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · beloved by locals</div><div id="fl-C2"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C2')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C2"><div class="add-prompt">Search for a lunch spot<span>Popular with Parisians · near Rue Royale · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C2" placeholder="e.g. wine bar, bistro, crêperie..." onkeydown="if(event.key==='Enter')doSearch('C2')"><button class="srch-btn" onclick="doSearch('C2')">Search ↵</button></div><div class="srch-results" id="sr-C2"></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="C3"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C3')"></div><div class="cbody"><div class="crow"><div class="tpill">3:00 pm</div><div class="etitle">Check in &amp; settle in</div></div><div class="eloc">Élysée-Concorde Suite Royale, 7 Rue Royale</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">Unpack, freshen up, rest before tonight. You're steps from Place de la Madeleine — pick up champagne from a nearby cave à vins. 🥂</div></div></div></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="C4"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C4')"></div><div class="cbody"><div class="crow"><div class="tpill">6:30 pm</div><div class="etitle">Get glam for ballet</div></div><div class="eloc">Your apartment — dress elegantly, allow 45 min to Bastille</div></div></div></div></div>
+
+<div class="ev"><div class="dot sp"></div><div class="card sp" id="C5"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C5')"></div><div class="cbody"><div class="crow"><div class="tpill">7:30 pm</div><div class="etitle">Ballet performance</div></div><div class="badge">✓ Booked</div><div class="eloc" style="margin-top:4px">Opéra Bastille, Place de la Bastille, 75012</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">Arrive 15 min early. Order champagne at the bar during intermission — a Parisian tradition. Dress code: smart/elegant. Metro: line 1 or 5 to Bastille.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="C6"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C6')"></div><div class="cbody"><div class="crow"><div class="tpill">10:00 pm</div><div class="etitle">Post-ballet drinks &amp; dessert</div></div><div class="eloc">Near Opéra Bastille / Le Marais</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · local favourites near Bastille</div><div id="fl-C6"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C6')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C6"><div class="add-prompt">Search for a post-show spot<span>Near Bastille · popular with locals · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C6" placeholder="e.g. wine bar, late brasserie..." onkeydown="if(event.key==='Enter')doSearch('C6')"><button class="srch-btn" onclick="doSearch('C6')">Search ↵</button></div><div class="srch-results" id="sr-C6"></div></div>
+</div></div>
+
+<!-- DAY 2 -->
+<div id="d2" class="panel">
+<div class="dlabel">Day 2 — Friday Jul 3 · Louvre, shopping &amp; party night</div>
+<div class="tl">
+<div class="ev"><div class="dot fd"></div><div class="card" id="C8"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C8')"></div><div class="cbody"><div class="crow"><div class="tpill">7:30 am</div><div class="etitle">Breakfast — near the apartment</div></div><div class="eloc">8th arrondissement</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · steps from Rue Royale</div><div id="fl-C8"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C8')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C8"><div class="add-prompt">Search for a breakfast spot<span>Near Rue Royale · loved by locals · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C8" placeholder="e.g. boulangerie, brunch café..." onkeydown="if(event.key==='Enter')doSearch('C8')"><button class="srch-btn" onclick="doSearch('C8')">Search ↵</button></div><div class="srch-results" id="sr-C8"></div></div>
+
+<div class="ev"><div class="dot sp"></div><div class="card sp" id="C9"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C9')"></div><div class="cbody"><div class="crow"><div class="tpill">9:00 am</div><div class="etitle">The Louvre — early entry</div></div><div class="badge">Book at louvre.fr · ~€22/person</div><div class="eloc" style="margin-top:4px">Musée du Louvre, 75001 · 15 min from apartment</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">9 am = fewest crowds. Mona Lisa first, then Venus de Milo, Winged Victory. Pick 2 wings and enjoy properly. Book timed-entry in advance — queues without a ticket can be very long.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="C10"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C10')"></div><div class="cbody"><div class="crow"><div class="tpill">12:00 pm</div><div class="etitle">Lunch — near the Louvre</div></div><div class="eloc">Palais Royal / Bourse area · 15 min from apartment</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · local food scene favourites</div><div id="fl-C10"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C10')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C10"><div class="add-prompt">Search for a lunch spot<span>Near Louvre &amp; Palais Royal · popular with Parisians</span></div><div class="search-row"><input class="srch-inp" id="si-C10" placeholder="e.g. natural wine bistro, Verjus..." onkeydown="if(event.key==='Enter')doSearch('C10')"><button class="srch-btn" onclick="doSearch('C10')">Search ↵</button></div><div class="srch-results" id="sr-C10"></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="C11"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C11')"></div><div class="cbody"><div class="crow"><div class="tpill">1:30 pm</div><div class="etitle">Vintage &amp; thrift shopping</div></div><div class="eloc">Le Marais · 20 min from apartment</div><button class="xbtn" onclick="xp(this)">Shops ↓</button><div class="dets"><div class="flabel">★ 4.5+ · Le Marais vintage shops</div><div id="fl-C11"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C11')">＋ Add a shop</button>
+<div class="addbox" id="ab-C11"><div class="add-prompt">Search for a vintage shop<span>Le Marais · type a name or style</span></div><div class="search-row"><input class="srch-inp" id="si-C11" placeholder="e.g. designer consignment, kilo shop..." onkeydown="if(event.key==='Enter')doSearch('C11')"><button class="srch-btn" onclick="doSearch('C11')">Search ↵</button></div><div class="srch-results" id="sr-C11"></div></div>
+
+<div class="ev"><div class="dot nap"></div><div class="card nap" id="NAP1"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'NAP1')"></div><div class="cbody"><div class="crow"><div class="tpill nap">4:00 pm</div><div class="etitle">😴 Nap time — back to the apartment</div></div><div class="eloc">Élysée-Concorde Suite Royale, 7 Rue Royale</div><button class="xbtn" onclick="xp(this)">Details ↓</button><div class="dets">Head back for a proper rest before the big night. Party night ahead — sleep now, shine later! Set an alarm for 5:30 pm.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="C13"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C13')"></div><div class="cbody"><div class="crow"><div class="tpill">6:00 pm</div><div class="etitle">Rooftop apéro — golden hour</div></div><div class="eloc">Paris rooftop bar</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · within 20 min</div><div id="fl-C13"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C13')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C13"><div class="add-prompt">Search for a rooftop bar<span>Paris · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C13" placeholder="e.g. rooftop champagne, Perruche..." onkeydown="if(event.key==='Enter')doSearch('C13')"><button class="srch-btn" onclick="doSearch('C13')">Search ↵</button></div><div class="srch-results" id="sr-C13"></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="C14"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C14')"></div><div class="cbody"><div class="crow"><div class="tpill">7:30 pm</div><div class="etitle">Dinner</div></div><div class="eloc">Le Marais / 11th arrondissement · 20 min</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · where Parisians actually eat</div><div id="fl-C14"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C14')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C14"><div class="add-prompt">Search for a dinner restaurant<span>Le Marais area · loved by locals · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C14" placeholder="e.g. Septime, Au Passage, bistro..." onkeydown="if(event.key==='Enter')doSearch('C14')"><button class="srch-btn" onclick="doSearch('C14')">Search ↵</button></div><div class="srch-results" id="sr-C14"></div></div>
+
+<div class="ev"><div class="dot nt"></div><div class="card nt" id="C15"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'C15')"></div><div class="cbody"><div class="crow"><div class="tpill nt">10:00 pm</div><div class="etitle">🪩 Party night — dancing</div></div><div class="eloc">Paris nightlife · within 25 min</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · top-rated Paris nightlife</div><div id="fl-C15"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-C15')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-C15"><div class="add-prompt">Search for a club or cabaret<span>Paris nightlife · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-C15" placeholder="e.g. Moulin Rouge, jazz club, Caveau..." onkeydown="if(event.key==='Enter')doSearch('C15')"><button class="srch-btn" onclick="doSearch('C15')">Search ↵</button></div><div class="srch-results" id="sr-C15"></div></div>
+</div></div>
+
+<!-- DAY 3 -->
+<div id="d3" class="panel">
+<div class="dlabel">Day 3 — Saturday Jul 4 · Art, Seine &amp; a beautiful evening</div>
+<div class="tl">
+<div class="ev"><div class="dot fd"></div><div class="card" id="E1"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E1')"></div><div class="cbody"><div class="crow"><div class="tpill">8:30 am</div><div class="etitle">Breakfast — near the apartment</div></div><div class="eloc">8th arrondissement</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · steps from Rue Royale</div><div id="fl-E1"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-E1')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-E1"><div class="add-prompt">Search for a breakfast spot<span>Near Rue Royale · loved by locals</span></div><div class="search-row"><input class="srch-inp" id="si-E1" placeholder="e.g. café, patisserie, brunch..." onkeydown="if(event.key==='Enter')doSearch('E1')"><button class="srch-btn" onclick="doSearch('E1')">Search ↵</button></div><div class="srch-results" id="sr-E1"></div></div>
+
+<div class="ev"><div class="dot sp"></div><div class="card sp" id="E2"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E2')"></div><div class="cbody"><div class="crow"><div class="tpill">10:00 am</div><div class="etitle">Musée d'Orsay</div></div><div class="badge">Book at musee-orsay.fr · ~€16/person</div><div class="eloc" style="margin-top:4px">1 Rue de la Légion d'Honneur · 20 min from apartment</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">World's greatest Impressionist collection — Monet, Renoir, Van Gogh, Degas. Far less crowded than the Louvre. Allow 2–2.5 hours.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="E3"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E3')"></div><div class="cbody"><div class="crow"><div class="tpill">12:30 pm</div><div class="etitle">Lunch — Saint-Germain</div></div><div class="eloc">Saint-Germain-des-Prés · 20 min from apartment</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · Left Bank local favourites</div><div id="fl-E3"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-E3')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-E3"><div class="add-prompt">Search for a Saint-Germain restaurant<span>Left Bank · loved by locals · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-E3" placeholder="e.g. Le Bon Saint-Pourçain, bistro..." onkeydown="if(event.key==='Enter')doSearch('E3')"><button class="srch-btn" onclick="doSearch('E3')">Search ↵</button></div><div class="srch-results" id="sr-E3"></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="E4"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E4')"></div><div class="cbody"><div class="crow"><div class="tpill">2:00 pm</div><div class="etitle">📸 Eiffel Tower &amp; Trocadéro</div></div><div class="eloc">Champ de Mars &amp; Trocadéro · 20 min from apartment</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">No tickets needed — just walk up. Trocadéro esplanade for the iconic view, Champ de Mars lawn for group pics, Bir-Hakeim bridge for the most beautiful angle. 🗼✨</div></div></div></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card" id="E4b"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E4b')"></div><div class="cbody"><div class="crow"><div class="tpill">3:30 pm</div><div class="etitle">Pont Alexandre III &amp; Grand Palais</div></div><div class="eloc">Pont Alexandre III · 15 min from apartment</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">The most beautiful bridge in Paris — gold statues, sweeping Seine views. Grand Palais and Petit Palais right there, free to walk around.</div></div></div></div></div>
+
+<div class="ev"><div class="dot wine"></div><div class="card wine" id="WINE"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'WINE')"></div><div class="cbody"><div class="crow"><div class="tpill wine">4:30 pm</div><div class="etitle">🍷 Seine River Wine Tasting Cruise</div></div><div class="badge wine">Book ahead · ~2 hours</div><div class="eloc" style="margin-top:4px">Departing near Pont de l'Alma · steps from where you'll be</div><button class="xbtn" onclick="xp(this)">Details &amp; booking ↓</button><div class="dets">Float past Notre-Dame, the Louvre and the Eiffel Tower while a sommelier guides you through 5–6 French wines. Cheese &amp; charcuterie included. Perfect bachelorette golden-hour moment.<br><br><div class="wine-price">~€55–70 per person · 2 hours</div><div class="wine-btns"><a class="wine-btn" style="background:var(--wine-text)" href="https://www.getyourguide.com/paris-l16/?q=seine+wine+tasting+cruise" target="_blank">↗ Book on GetYourGuide</a><a class="wine-btn" style="background:#3B5998" href="https://www.viator.com/searchResults/all?text=seine+wine+tasting+cruise+paris" target="_blank">↗ Also on Viator</a></div></div></div></div></div></div>
+
+<div class="ev"><div class="dot nap"></div><div class="card nap" id="NAP2"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'NAP2')"></div><div class="cbody"><div class="crow"><div class="tpill nap">6:30 pm</div><div class="etitle">😴 Quick rest — back to the apartment</div></div><div class="eloc">Élysée-Concorde Suite Royale, 7 Rue Royale</div><button class="xbtn" onclick="xp(this)">Details ↓</button><div class="dets">Freshen up after the cruise before the big Saturday evening. Set an alarm for 7:30 pm.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="E6"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E6')"></div><div class="cbody"><div class="crow"><div class="tpill">8:00 pm</div><div class="etitle">Dinner — special Saturday night</div></div><div class="eloc">8th arr / Saint-Germain · within 20 min</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · where Parisians go for a special meal</div><div id="fl-E6"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-E6')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-E6"><div class="add-prompt">Search for a special Saturday dinner<span>Paris locals' favourites · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-E6" placeholder="e.g. Chez L'Ami Jean, Clown Bar..." onkeydown="if(event.key==='Enter')doSearch('E6')"><button class="srch-btn" onclick="doSearch('E6')">Search ↵</button></div><div class="srch-results" id="sr-E6"></div></div>
+
+<div class="ev"><div class="dot nt"></div><div class="card nt" id="E8"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'E8')"></div><div class="cbody"><div class="crow"><div class="tpill nt">10:30 pm</div><div class="etitle">🪩 Late night cocktail bars</div></div><div class="eloc">Pigalle / Le Marais / Saint-Germain · within 25 min</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">★ 4.5+ · local cocktail bars</div><div id="fl-E8"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-E8')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-E8"><div class="add-prompt">Search for a late night bar<span>Paris locals' cocktail bars · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-E8" placeholder="e.g. Le Syndicat, cocktail bar..." onkeydown="if(event.key==='Enter')doSearch('E8')"><button class="srch-btn" onclick="doSearch('E8')">Search ↵</button></div><div class="srch-results" id="sr-E8"></div></div>
+</div></div>
+
+<!-- DAY 4 — FIXED TIMING -->
+<div id="d4" class="panel">
+<div class="dlabel">Day 4 — Sunday Jul 5 · Check out &amp; fly to Toronto ✈️</div>
+<div class="tl">
+
+<div class="ev"><div class="dot warn"></div><div class="card warn"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'PACK')"></div><div class="cbody"><div class="crow"><div class="tpill warn">Sat night</div><div class="etitle">⚠️ Pack your bags tonight — before going out</div></div><button class="xbtn" onclick="xp(this)">Why ↓</button><div class="dets">Your flight to Toronto is at <strong>12:00 pm</strong>. You must leave the apartment by <strong>8:00 am at the latest</strong>. Pack everything Saturday evening so Sunday morning is calm and stress-free. Lay out your travel outfits too.</div></div></div></div></div>
+
+<div class="ev"><div class="dot fd"></div><div class="card" id="F0"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'F0')"></div><div class="cbody"><div class="crow"><div class="tpill">7:00 am</div><div class="etitle">Quick grab-and-go breakfast</div></div><div class="eloc">Ladurée (16 Rue Royale — your doorstep) or any boulangerie on the street</div><button class="xbtn" onclick="xp(this)">Options ↓</button><div class="dets"><div class="flabel">Fast &amp; close — no sitting down today</div><div id="fl-F0"></div></div></div></div></div></div>
+<button class="plusbtn" onclick="tog('ab-F0')">＋ Add a recommendation</button>
+<div class="addbox" id="ab-F0"><div class="add-prompt">Search for a quick Sunday breakfast<span>Near Rue Royale · fast service · 4.5+ stars</span></div><div class="search-row"><input class="srch-inp" id="si-F0" placeholder="e.g. boulangerie, café to go..." onkeydown="if(event.key==='Enter')doSearch('F0')"><button class="srch-btn" onclick="doSearch('F0')">Search ↵</button></div><div class="srch-results" id="sr-F0"></div></div>
+
+<div class="ev"><div class="dot sp"></div><div class="card sp"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'CHKOUT')"></div><div class="cbody"><div class="crow"><div class="tpill">7:45 am</div><div class="etitle">Final sweep &amp; lock up</div></div><div class="eloc">Élysée-Concorde Suite Royale, 7 Rue Royale</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">Quick final check — passports, chargers, anything left in the bathroom. Leave keys as arranged with the host (official check-out is 11 am but you'll be leaving early — just arrange key drop). One last look at the apartment. 💜</div></div></div></div></div>
+
+<div class="ev"><div class="dot warn"></div><div class="card warn"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'UB2')"></div><div class="cbody"><div class="crow"><div class="tpill warn">8:00 am</div><div class="etitle">⚡ Uber XL departs for CDG — do not be late!</div></div><div class="badge warn">Must leave by 8:00 am</div><div class="eloc" style="margin-top:4px">7 Rue Royale → Charles de Gaulle Airport</div><button class="xbtn" onclick="xp(this)">Flight timing breakdown ↓</button><div class="dets"><strong>✈️ Flight to Toronto departs at 12:00 pm.</strong><br><br>International flights require check-in at least <strong>3 hours before departure</strong> → you must be at CDG by <strong>9:00 am</strong>.<br><br>🚗 Uber from Rue Royale to CDG = ~45–50 min. Leaving at 8:00 am gets you there by ~8:50 am — 3h10m before your flight. That's the minimum safe window.<br><br><strong>Pre-book the Uber Saturday night</strong> so it's guaranteed. Select CDG Terminal 2 (Air Canada typically departs from Terminal 2E — check your boarding pass).<br><br>🥐 Grab a pain au chocolat for the road — one last taste of Paris before boarding.</div></div></div></div></div>
+
+<div class="ev"><div class="dot"></div><div class="card"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'CDG')"></div><div class="cbody"><div class="crow"><div class="tpill">~8:50 am</div><div class="etitle">Arrive at CDG · 3+ hours before flight</div></div><div class="eloc">Charles de Gaulle Airport · check-in, security &amp; departure</div><button class="xbtn" onclick="xp(this)">Tips ↓</button><div class="dets">Head straight to Air Canada check-in (Terminal 2E). Allow extra time for group check-in with luggage. After security, explore duty-free: Ladurée macarons (airport shop!), champagne, Diptyque candles, French perfume.</div></div></div></div></div>
+
+<div class="ev"><div class="dot sp"></div><div class="card sp"><div class="cmain"><div class="ccol"><input class="cbx" type="checkbox" onchange="ck(this,'FLT')"></div><div class="cbody"><div class="crow"><div class="tpill">12:00 pm</div><div class="etitle">✈️ Flight to Toronto — au revoir Paris! 💜</div></div><div class="eloc">CDG → Toronto Pearson International (YYZ)</div></div></div></div></div>
+</div></div>
+
+<!-- CHECKLIST -->
+<div id="dk" class="panel">
+<div class="dlabel">Booking checklist</div>
+<div class="clhead">Must book before you go</div>
+<div class="clitem"><input class="scbx" type="checkbox"><div class="cltext"><strong>Ballet — Thu Jul 2 at 7:30 pm</strong><div class="donetag">✓ Booked — Opéra Bastille</div></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>Louvre timed entry — Fri Jul 3, 9 am</strong><span>louvre.fr · ~€22/person</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>Musée d'Orsay — Sat Jul 4, 10 am</strong><span>musee-orsay.fr · ~€16/person</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>🍷 Seine wine tasting cruise — Sat Jul 4, 4:30 pm</strong><span>getyourguide.com or viator.com · ~€55–70/person · book ahead!</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>Party night — Fri Jul 3</strong><span>Moulin Rouge needs advance booking. Search tool for others.</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>Dinner Fri Jul 3 &amp; Sat Jul 4</strong><span>Septime, Clown Bar, Chez L'Ami Jean — book 3–4 weeks ahead.</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>⚡ Pre-book Uber XL for 8:00 am Sunday Jul 5</strong><span>12pm flight to Toronto — cannot miss it. Book Saturday night before going out.</span></div></div>
+<div class="clitem urg"><input class="scbx" type="checkbox"><div class="cltext"><strong>Pack bags Saturday evening</strong><span>Before going out Saturday. No time Sunday morning.</span></div></div>
+<div class="clhead">Quick tips</div>
+<div class="tipcard"><strong>Apartment</strong>Élysée-Concorde Suite Royale, 7 Rue Royale, 75008. Uber XL both ways — ~€60–80 each way.</div>
+<div class="tipcard"><strong>Sunday departure ⚡</strong>Flight at 12pm · must leave apartment by 8:00 am · arrive CDG ~8:50 am · 3hrs before flight. Pre-book the Uber Saturday night!</div>
+<div class="tipcard"><strong>All recommendations</strong>★ 4.5+ · popular with Parisians · within 20–30 min of your apartment. No tourist traps.</div>
+<div class="tipcard"><strong>The magic word</strong>"Bonjour!" before any request goes a very long way in Paris.</div>
+</div>
+</div>
+
+<script>
+var CTX={
+  'C2':'popular with Parisians local favourite restaurants lunch near 8th arrondissement Rue Royale Paris 4.5 stars not tourist trap no michelin',
+  'C6':'popular with locals wine bars bistros late night near Bastille 11th 12th arrondissement Paris 4.5 stars',
+  'C8':'popular with Parisians breakfast cafes boulangeries near Rue Royale 8th Paris 4.5 stars',
+  'C10':'popular local Parisians lunch restaurants Palais Royal Bourse 1st 2nd arrondissement Paris 4.5 stars no michelin',
+  'C11':'popular vintage thrift consignment clothing shops Le Marais Paris 4.5 stars',
+  'C13':'popular rooftop bars terraces panoramic views Paris locals 4.5 stars',
+  'C14':'popular Parisians dinner restaurants Le Marais 11th arrondissement natural wine bistro 4.5 stars no michelin',
+  'C15':'popular locals nightlife jazz clubs cabarets dancing Paris 4.5 stars',
+  'E1':'popular breakfast cafes boulangeries locals near Rue Royale 8th Paris 4.5 stars',
+  'E3':'popular Parisians lunch restaurants Saint-Germain 6th Left Bank 4.5 stars no michelin',
+  'E6':'popular Parisians dinner restaurants 7th 8th arrondissement Paris local favourite 4.5 stars no michelin',
+  'E8':'popular Parisians late night cocktail bars Pigalle Le Marais 10th 11th arrondissement 4.5 stars',
+  'F0':'quick breakfast boulangeries cafes near Rue Royale Madeleine Paris 4.5 stars fast service'
+};
+var D={
+'C2':[{n:'Racines',url:'https://maps.google.com/?q=Racines+Passage+des+Panoramas+Paris',rating:'4.6',tags:[['Local icon','p'],['Natural wine','g'],['15 min walk','g']],d:'8 Passage des Panoramas, 2nd. A legend of the Paris natural wine scene. Beloved by chefs, food lovers and locals — this is where Parisians actually eat.',votes:0},{n:'Verjus',url:'https://maps.google.com/?q=Verjus+Restaurant+Paris',rating:'4.6',tags:[['Local favourite','p'],['Seasonal menu','g'],['15 min walk','g']],d:'52 Rue de Richelieu near Palais Royal. Franco-American bistro adored by the local food community. Beautiful seasonal cooking.',votes:0}],
+'C6':[{n:'Septime La Cave',url:'https://maps.google.com/?q=Septime+La+Cave+Paris',rating:'4.6',tags:[['Natural wine bar','p'],['Local institution','g'],['25 min','g']],d:'3 Rue Basfroi, 11th. Natural wine bar from the Septime team — a neighbourhood institution beloved by locals.',votes:0},{n:'Le Servan',url:'https://maps.google.com/?q=Le+Servan+Paris',rating:'4.6',tags:[['Local darling','p'],['Modern French','g'],['25 min','g']],d:'32 Rue Saint-Maur, 11th. Consistently packed with Parisians. Outstanding modern French bistro.',votes:0}],
+'C8':[{n:'Delano Café',url:'https://maps.google.com/?q=Delano+Cafe+Rue+Anjou+Paris',rating:'4.8',tags:[['4 min walk','g'],['Opens 7 am','p']],d:"4 Rue d'Anjou. Opens 7 am. Elegant sit-down breakfast beloved by the neighbourhood.",votes:0},{n:'Culottée Boétie',url:'https://maps.google.com/?q=Culottee+Boetie+Paris',rating:'4.7',tags:[['8 min walk','g']],d:"42 Rue de Miromesnil. Opens 8 am. One of the 8th's best brunch spots — packed with locals every weekend.",votes:0},{n:'Butterfly Pâtisserie',url:'https://maps.google.com/?q=Butterfly+Patisserie+Rosewood+Paris',rating:'4.8',tags:[['3 min walk','g']],d:"6 Rue Boissy d'Anglas. Rosewood Hotel. Exceptional pastries — a neighbourhood gem.",votes:0},{n:'Du Pain et des Idées',url:'https://www.dupainetdesidees.com',rating:'4.7',tags:[['Legendary','r'],['20 min metro','g']],d:'34 Rue Yves Toudic. The boulangerie Parisians travel across the city for — best bread in Paris.',votes:0}],
+'C10':[{n:'Verjus Bar à Vins',url:'https://maps.google.com/?q=Verjus+Bar+a+Vins+Paris',rating:'4.6',tags:[['Local food scene','p'],['Natural wine','g'],['15 min','g']],d:"47 Rue de Montpensier. Local food community's favourite wine bar and small plates.",votes:0},{n:'Ellsworth',url:'https://maps.google.com/?q=Ellsworth+Restaurant+Paris',rating:'4.5',tags:[['Local favourite','p'],['Great value','g'],['15 min','g']],d:'34 Rue de Richelieu. A darling of the Paris food scene — brilliant natural wines, always full of people who know where to eat.',votes:0}],
+'C11':[{n:"Thanx God I'm a VIP",url:'https://maps.google.com/?q=Thanx+God+Im+a+VIP+Paris',rating:'4.5',tags:[['Designer consignment','r'],['Local pick','p'],['20 min','g']],d:"12 Rue de Lancry. Curated designer consignment — Chanel, Dior, Sandro. A genuine local find.",votes:0}],
+'C13':[{n:'Perruche',url:'https://www.restaurant-perruche.com',rating:'4.5',tags:[['Panoramic views','p'],['Book ahead','r'],['20 min','g']],d:'Printemps Haussmann rooftop. Spectacular 360° views over Paris. Popular with Parisians for special occasions. Reserve a week ahead.',votes:0}],
+'C14':[{n:'Septime',url:'https://www.septime-charonne.fr',rating:'4.7',tags:[['Local legend','r'],['Book 4 wks ahead','r'],['20 min','g']],d:'80 Rue de Charonne, 11th. The restaurant that defined a generation of Paris dining. Book immediately.',votes:0},{n:'Au Passage',url:'https://maps.google.com/?q=Au+Passage+Paris',rating:'4.5',tags:[['Natural wine bar','p'],['Local institution','g'],['20 min','g']],d:'1bis Passage Saint-Sébastien. A neighbourhood wine bar institution packed with locals.',votes:0},{n:'Mokonuts',url:'https://maps.google.com/?q=Mokonuts+Paris',rating:'4.6',tags:[['Local obsession','p'],['Tiny & cosy','g'],['20 min','g']],d:'5 Rue Saint-Bernard. A tiny café Parisians are obsessed with. Outstanding daily menu, exceptional baking.',votes:0}],
+'C15':[{n:'Moulin Rouge',url:'https://www.moulinrouge.fr',rating:'4.5',tags:[['Cabaret show','n'],['Book weeks ahead','r'],['25 min','g']],d:'82 Blvd de Clichy. The iconic Parisian cabaret — feathers, cancan, champagne. Dinner + show from ~€200/person.',votes:0},{n:'Le Caveau de la Huchette',url:'https://www.caveaudelahuchette.fr',rating:'4.5',tags:[['Jazz & dancing','n'],['Walk-in ok','g'],['20 min','g']],d:'5 Rue de la Huchette. Beloved by generations of Parisians. Live jazz in a medieval cave since 1946. Just show up.',votes:0}],
+'E1':[{n:'Delano Café',url:'https://maps.google.com/?q=Delano+Cafe+Rue+Anjou+Paris',rating:'4.8',tags:[['4 min walk','g'],['Opens 7 am','p']],d:"4 Rue d'Anjou. Opens 7 am.",votes:0},{n:'Culottée Boétie',url:'https://maps.google.com/?q=Culottee+Boetie+Paris',rating:'4.7',tags:[['8 min walk','g']],d:'42 Rue de Miromesnil. Opens 8 am. Brilliant brunch.',votes:0},{n:'Butterfly Pâtisserie',url:'https://maps.google.com/?q=Butterfly+Patisserie+Rosewood+Paris',rating:'4.8',tags:[['3 min walk','g']],d:"6 Rue Boissy d'Anglas. Exceptional pastries.",votes:0}],
+'E3':[{n:'Le Bon Saint-Pourçain',url:'https://maps.google.com/?q=Le+Bon+Saint+Pourçain+Paris',rating:'4.5',tags:[['Hidden local gem','p'],['20 min','g']],d:'10bis Rue Servandoni. Neighbourhood bistro beloved by Saint-Germain locals — not a tourist in sight.',votes:0},{n:'Semilla',url:'https://maps.google.com/?q=Semilla+Restaurant+Paris',rating:'4.5',tags:[['Local favourite','p'],['Open kitchen','g'],['20 min','g']],d:'54 Rue de Seine. Reliably packed with Parisians. Seasonal cooking, brilliant natural wines.',votes:0}],
+'E6':[{n:"Chez L'Ami Jean",url:'https://maps.google.com/?q=Chez+Ami+Jean+Paris',rating:'4.6',tags:[['Local legend','r'],['Basque cuisine','p'],['20 min','g']],d:'27 Rue Malar, 7th. Legendary neighbourhood restaurant beloved by generations of Parisians. Hearty Basque cooking, outstanding wine.',votes:0},{n:'La Bourse et la Vie',url:'https://maps.google.com/?q=La+Bourse+et+la+Vie+Paris',rating:'4.6',tags:[['Local darling','p'],['Classic bistro','g'],['15 min','g']],d:'12 Rue Vivienne. Tiny beautiful bistro adored by the Paris food community — steak frites done perfectly.',votes:0},{n:'Clown Bar',url:'https://maps.google.com/?q=Clown+Bar+Paris',rating:'4.6',tags:[['Natural wine icon','r'],['Local obsession','p'],['20 min','g']],d:'114 Rue Amelot. One of the most beloved restaurants in Paris. Beautiful listed bar, natural wine icon.',votes:0}],
+'E8':[{n:'Le Syndicat',url:'https://maps.google.com/?q=Le+Syndicat+Paris',rating:'4.5',tags:[['French spirits','p'],['Bartender fave','r'],['20 min','g']],d:"51 Rue du Faubourg Saint-Denis. Paris's most celebrated cocktail bar — all French spirits, outstanding creativity.",votes:0},{n:'Sherry Butt',url:'https://maps.google.com/?q=Sherry+Butt+Paris',rating:'4.5',tags:[['Cocktail institution','p'],['Local crowd','g'],['20 min','g']],d:'20 Rue Beautreillis. A genuine Paris cocktail institution beloved by locals.',votes:0}],
+'F0':[{n:'Ladurée Royale',url:'https://www.laduree.com',rating:'4.5',tags:[['On Rue Royale','g'],['Opens early','p']],d:'16 Rue Royale — literally your front door. Grab a croissant and café to go. The perfect last Paris moment.',votes:0},{n:'Delano Café',url:'https://maps.google.com/?q=Delano+Cafe+Rue+Anjou+Paris',rating:'4.8',tags:[['4 min walk','g'],['Opens 7 am','p']],d:"4 Rue d'Anjou. Opens 7 am — perfect for an early Sunday departure.",votes:0},{n:'Any boulangerie on Rue Royale',rating:'4.5',url:'https://maps.google.com/?q=boulangerie+near+Rue+Royale+Paris',tags:[['Walk out the door','g'],['Fastest option','p']],d:'Walk out, turn left or right. A warm croissant and café crème is the best Paris goodbye. 🥐',votes:0}]
+};
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function renderList(sid){
+  var el=document.getElementById('fl-'+sid);if(!el)return;
+  var items=D[sid]||[];var html='';
+  items.forEach(function(item,i){
+    var tags=(item.tags||[]).map(function(t){return'<span class="tag '+esc(t[1])+'">'+esc(t[0])+'</span>'}).join('');
+    var hc=item.votes>0?'fi-heart voted':'fi-heart';
+    html+='<div class="fi"><div class="fi-top"><span class="fi-name">'+esc(item.n)+'</span>';
+    html+='<span class="fi-actions"><button class="fi-btn" onclick="startEdit(\''+sid+'\','+i+')" title="Edit">✎</button>';
+    html+='<button class="fi-btn del" onclick="removeItem(\''+sid+'\','+i+')" title="Remove">×</button></span></div>';
+    html+='<div class="fi-meta">';
+    if(item.rating)html+='<span class="fi-rating">★ '+esc(item.rating)+'</span>';
+    if(item.url)html+='<a class="fi-link" href="'+esc(item.url)+'" target="_blank">↗ Visit</a>';
+    html+='<button class="'+hc+'" id="h-'+sid+'-'+i+'" onclick="vote(\''+sid+'\','+i+')">♡ '+(item.votes||0)+'</button></div>';
+    if(tags)html+='<div style="margin:4px 0">'+tags+'</div>';
+    if(item.d)html+='<div style="color:var(--text2);font-size:12px;margin-top:2px">'+esc(item.d)+'</div>';
+    html+='<div class="edit-form" id="ef-'+sid+'-'+i+'"><textarea class="edit-inp" id="et-'+sid+'-'+i+'" rows="3">'+esc(item.n)+(item.d?'\n'+item.d:'')+'</textarea>';
+    html+='<div class="edit-row"><button class="save-btn" onclick="saveEdit(\''+sid+'\','+i+')">Save</button><button class="cancel-btn" onclick="cancelEdit(\''+sid+'\','+i+')">Cancel</button></div></div></div>';
+  });
+  el.innerHTML=html;
+}
+async function doSearch(sid){
+  var inp=document.getElementById('si-'+sid);
+  var q=(inp&&inp.value.trim())||'';
+  if(!q)return;
+  var el=document.getElementById('sr-'+sid);
+  el.innerHTML='<div class="srch-loading">Searching Paris... 🗼</div>';
+  try{
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:800,
+        messages:[{role:'user',content:'Paris travel expert. Bachelorette group staying at 7 Rue Royale 75008 Paris. Search: "'+q+'". Context: '+(CTX[sid]||'restaurants bars Paris')+'. Return ONLY a valid JSON array of exactly 3 real Paris places that locals love, rated 4.5+ on Google Maps, within 25 min of 7 Rue Royale. No Michelin restaurants. Format: [{"name":"Place Name","address":"street, arrondissement","rating":"4.X","url":"https://maps.google.com/?q=Place+Name+Paris"}]. ONLY the JSON array, nothing else.'}]
+      })
+    });
+    var data=await resp.json();
+    var text=data.content[0].text.replace(/```json|```/g,'').trim();
+    var places=JSON.parse(text);
+    places.forEach(function(p,i){window['_P_'+sid+'_'+i]=p;});
+    var html='';
+    places.forEach(function(p,i){
+      html+='<div class="srch-opt" onclick="pickPlace(\''+sid+'\','+i+')">';
+      html+='<div style="flex:1"><div class="srch-opt-name">'+esc(p.name||'')+'</div>';
+      html+='<div class="srch-opt-addr">'+esc(p.address||'')+'</div></div>';
+      html+='<div class="srch-opt-r">'+(p.rating?'<div class="srch-star">★ '+esc(p.rating)+'</div>':'');
+      html+='<div class="srch-add">Tap to add ↵</div></div></div>';
+    });
+    el.innerHTML=html||'<div class="srch-empty">No results — try different keywords</div>';
+  }catch(e){
+    el.innerHTML='<div class="srch-empty">Search unavailable. Try again or use a specific name.</div>';
+  }
+}
+function pickPlace(sid,i){
+  var p=window['_P_'+sid+'_'+i];
+  if(!p)return;
+  if(!D[sid])D[sid]=[];
+  D[sid].push({n:p.name||'',tags:[],d:p.address||'',rating:p.rating||'',url:p.url||'',votes:0});
+  renderList(sid);
+  var det=document.getElementById('fl-'+sid);
+  if(det){var dp=det.closest('.dets');if(dp&&!dp.classList.contains('on')){dp.classList.add('on');var b=dp.previousElementSibling;if(b&&b.classList.contains('xbtn'))b.textContent=b.textContent.replace('↓','↑');}}
+  var inp=document.getElementById('si-'+sid);if(inp)inp.value='';
+  document.getElementById('sr-'+sid).innerHTML='';
+  document.getElementById('ab-'+sid).classList.remove('on');
+}
+function vote(sid,i){D[sid][i].votes=(D[sid][i].votes||0)+1;var b=document.getElementById('h-'+sid+'-'+i);if(b){b.textContent='♡ '+D[sid][i].votes;b.classList.add('voted')}}
+function startEdit(sid,i){var ef=document.getElementById('ef-'+sid+'-'+i);if(ef)ef.classList.add('on');var et=document.getElementById('et-'+sid+'-'+i);if(et)et.focus()}
+function cancelEdit(sid,i){var ef=document.getElementById('ef-'+sid+'-'+i);if(ef)ef.classList.remove('on')}
+function saveEdit(sid,i){var et=document.getElementById('et-'+sid+'-'+i);if(!et)return;var lines=et.value.trim().split('\n');D[sid][i].n=lines[0]||D[sid][i].n;D[sid][i].d=lines.slice(1).join(' ').trim()||'';D[sid][i].tags=[];renderList(sid)}
+function removeItem(sid,i){if(!confirm('Remove "'+D[sid][i].n+'"?'))return;D[sid].splice(i,1);renderList(sid)}
+function sw(id,el){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on')});document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});document.getElementById(id).classList.add('on');el.classList.add('on')}
+function xp(btn){var d=btn.nextElementSibling;var o=d.classList.contains('on');d.classList.toggle('on',!o);btn.textContent=btn.textContent.replace(o?'↑':'↓',o?'↓':'↑')}
+function ck(chk,id){var c=document.getElementById(id);if(c)c.classList.toggle('done',chk.checked)}
+function tog(id){document.getElementById(id).classList.toggle('on')}
+Object.keys(D).forEach(renderList);
+</script>
+</div>
+</body>
+</html>
